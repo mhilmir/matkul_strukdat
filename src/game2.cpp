@@ -1,5 +1,6 @@
 #include <graphics.h>
 #include <stdlib.h>
+
 int  main()
  {
    int x[1000],y[1000],v[1000],r[1000],w[1000];
@@ -14,10 +15,7 @@ int  main()
        v[i] = rand()%5+1;
        w[i]= rand()%10+1;
    }
-
-   int gd = DETECT, gm;
-   initgraph(&gd, &gm, NULL);
-   
+   initwindow(600,400);
    while (!kbhit())
    {
        cleardevice();
