@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.14)  14 SEP 2022 13:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.14)  14 SEP 2022 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./proposalGame.tex
 (proposalGame.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-30>
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/extsizes/extarticle.cls
+L3 programming layer <2022-07-04>
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/base/size12.clo
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/base/exscale.sty
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/base\exscale.sty
 Package: exscale 2018/09/24 v2.1i Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
@@ -32,19 +32,19 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \belowcaptionskip=\skip48
 \bibindent=\dimen139
 )
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 )
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/cite/cite.sty
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(/home/hilmiubuntu/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.
-def
-File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
+(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def
+File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count193
 \l__pdf_internal_box=\box51
 ) (proposalGame.aux)
@@ -68,24 +68,37 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <7> on input line 11.
  [1
 
-{/home/hilmiubuntu/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}] [2] (propo
-salGame.aux) ) 
+{C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 			\end{description}
+                         
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[2] (proposalGame.aux) ) 
 Here is how much of TeX's memory you used:
- 627 strings out of 477324
- 13953 string characters out of 2828280
- 346269 words of memory out of 3000000
- 21827 multiletter control sequences out of 15000+600000
- 471864 words of font info for 37 fonts, out of 8000000 for 9000
- 0 hyphenation exceptions out of 8191
- 41i,6n,48p,220b,204s stack positions out of 10000i,1000n,20000p,200000b,80000s
- </home/hilmiubuntu/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/
-ec/dpi600/tcrm1200.pk></home/hilmiubuntu/.miktex/texmfs/install/fonts/type1/pub
-lic/amsfonts/cm/cmbx12.pfb></home/hilmiubuntu/.miktex/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></home/hilmiubuntu/.miktex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmr17.pfb>
-Output written on proposalGame.pdf (2 pages, 41935 bytes).
+ 627 strings out of 478338
+ 13754 string characters out of 2837172
+ 309917 words of memory out of 3000000
+ 19122 multiletter control sequences out of 15000+600000
+ 472205 words of font info for 38 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,6n,48p,553b,204s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\tcrm1440.pk> <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/user/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/user/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/user/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on proposalGame.pdf (2 pages, 45065 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
