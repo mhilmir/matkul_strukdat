@@ -1,6 +1,5 @@
-#include <graphics.h>
+ #include<graphics.h>
 #include <stdlib.h>
-
 int  main()
  {
    int x[1000],y[1000],v[1000],r[1000],w[1000];
