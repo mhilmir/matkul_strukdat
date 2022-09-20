@@ -94,6 +94,31 @@ class ClArray{
             ClArray::data[j] = temp;
         }
     }
+
+    void Shift(char c, int n){  // c for 'l' or 'r', n for how far the shift algorithm works
+        float temp;
+        if((c == 'l') || (c == 'L')){
+            for(int i=0; i<n; i++){  // looping for how many one-step shift will be performed
+                temp = ClArray::data[0];  // save the first data index
+                for(int j=0; j<ClArray::Length-1; j++){
+                    ClArray::data[j] = ClArray::data[j+1];
+                }
+                ClArray::data[ClArray::Length-1] = temp;  // insert the temp
+            }
+        }
+        else if((c == 'r') || (c == 'R')){
+            for(int i=0; i<n; i++){  // looping for how many one-step shift will be performed
+                temp = ClArray::data[ClArray::Length-1];  // save the last data index
+                for(int j=ClArray::Length-1; j>0; j--){
+                    ClArray::data[j] = ClArray::data[j-1];
+                }
+                ClArray::data[0] = temp;  // insert the temp
+            }
+        }
+        else{
+            printf("\nERROR !!! invalid parameter...\n");
+        }
+    }
 };
 
 int main(){
@@ -152,7 +177,15 @@ int main(){
     d.Display();
     printf("\n===============================\n");
 
-
+    printf("\n");
+    d.Display();
+    printf("Shift 1 step to the left\n");
+    d.Shift('l', 1);
+    d.Display();
+    printf("Shift 3 step to the right\n");
+    d.Shift('r', 3);
+    d.Display();
+    printf("\n===============================\n");
 
     return 0;
 }
