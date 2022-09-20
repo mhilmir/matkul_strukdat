@@ -1,14 +1,12 @@
 #include <stdio.h>
 
 class ClArray{
-    private:
-
+private:
     float data[100];
     int Size;
     int Length;
 
-    public:
-
+public:
     ClArray(){
         Size = 100;
         Length = 0;
@@ -95,7 +93,7 @@ class ClArray{
         }
     }
 
-    void Shift(char c, int n){  // c for 'l' or 'r', n for how far the shift algorithm works
+    void Shift(char c, int n){  // c for 'l' or 'r', n for how many steps of the shift algorithm
         float temp;
         if((c == 'l') || (c == 'L')){
             for(int i=0; i<n; i++){  // looping for how many one-step shift will be performed
