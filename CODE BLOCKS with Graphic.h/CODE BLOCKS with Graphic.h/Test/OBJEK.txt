@@ -1,0 +1,23 @@
+ #include<graphics.h>
+ #include<conio.h>
+ class Objek2D//Mendefinisikan Class
+ { private :
+     int x,y;
+   public:
+     void SetPosisiXY(int xi,int yi)
+     {   x=xi; y=yi; }
+     void Draw()
+     {  setcolor(YELLOW);
+        circle(x,y,20);
+     }
+ };
+ main()
+ { initwindow(300,300);//Inisialisasi Layar Grafik
+   delay(1000);
+   Objek2D A;//mendefinisikan obyek
+   A.SetPosisiXY(150,150);//Memanggil anggota
+                          //fungsi SetPosisiXY
+   A.Draw();//Memanggil  fungsi Draw
+   getch();//Menunggu  keyborad ditekan
+   closegraph();//Menutup Grafik
+ }
