@@ -5,10 +5,6 @@ struct TNode{
     TNode* next;
 };
 
-void X(int* d){
-    *d = 10;
-}
-
 int main(){
     TNode* Head;
     TNode* newNode;
@@ -25,36 +21,25 @@ int main(){
     // |10 |Null|
     // ---------
     newNode = new TNode;// newNode = 10
-    newNode->data=5;
-    newNode->next=NULL;
+    newNode->data = 5;
+    newNode->next = NULL;
     prevNode->next = newNode;
     prevNode = newNode;
     // --------- ---------
     // |3 | |10 |
     // |10 |10 | |5 |NULL|
     // --------- ---------
-
-
     newNode = new TNode;// newNode = 1
-    newNode->data=6;
-    newNode->next=NULL;
+    newNode->data = 6;
+    newNode->next = NULL;
     prevNode->next = newNode;
     prevNode = newNode;
-    curNode =Head;
-    while(curNode)
-    {
-    printf("%d ",curNode->data);
-    curNode = curNode->next;
+    curNode = Head;
+
+    while(curNode){
+        printf("%d ", curNode->data);
+        curNode = curNode->next;
     }
-
-
-
-    int c;
-    c = 1;
-    X(&c);
-
-
-
 
     return 0;
 }
