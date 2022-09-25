@@ -1,4 +1,12 @@
-#include <stdio.h>
+#include <iostream>
+
+class nodaSaia{
+private:
+    TNode* head;
+    TNode* tail;
+public:
+    void 
+};
 
 struct TNode{
     int data;
@@ -6,40 +14,62 @@ struct TNode{
 };
 
 int main(){
+    TNode* tempNode;  // node sementara sebagai sarana membuat node baru
+    TNode* curNode;  // current node untuk menentukan di node mana kita sekarang berada
+
     TNode* Head;
-    TNode* newNode;
-    TNode* prevNode;
-    TNode* curNode;
+    TNode* lastNode;
+    // kita akan membuat linked list dengan urutan Head -> ............... -> lastNode
 
-    newNode = new TNode;  // newNode = 3
-    Head = newNode;  // Head =3
-    newNode->data = 10;
-    newNode->next = NULL;
-    prevNode = newNode;  // 3
-    // ---------
-    // |3 |
-    // |10 |Null|
-    // ---------
-    newNode = new TNode;// newNode = 10
-    newNode->data = 5;
-    newNode->next = NULL;
-    prevNode->next = newNode;
-    prevNode = newNode;
-    // --------- ---------
-    // |3 | |10 |
-    // |10 |10 | |5 |NULL|
-    // --------- ---------
-    newNode = new TNode;// newNode = 1
-    newNode->data = 6;
-    newNode->next = NULL;
-    prevNode->next = newNode;
-    prevNode = newNode;
+    /*
+    new TNode ----> statement tersebut mereturn address yang memiliki kapasitas sebesar struct TNode
+    */
+    
+    // membuat head node
+    tempNode = new TNode;
+    Head = tempNode;
+    tempNode->data = 10;
+    tempNode->next = NULL;
+    lastNode = tempNode;
+    /*
+        | 10 |
+         head
+    */
+    
+
+    // nambah node
+    tempNode = new TNode;
+    tempNode->data = 5;
+    tempNode->next = NULL;
+    lastNode->next = tempNode;
+    lastNode = tempNode;
+    /*
+        |   10   |   5   |
+           head   lastNode
+    */
+
+
+    // nambah node
+    tempNode = new TNode;
+    tempNode->data = 6;
+    tempNode->next = NULL;
+    lastNode->next = tempNode;
+    lastNode = tempNode;
+    /*
+        |   10   |   5   |   6   |
+           head           lastNode
+    */
+
+
+    // inisialisasi curNode
     curNode = Head;
-
+    
+    // display linked list
     while(curNode){
         printf("%d ", curNode->data);
         curNode = curNode->next;
     }
+    printf("\n");
 
     return 0;
 }
