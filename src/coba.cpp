@@ -2,10 +2,10 @@
 
 int main(){
     
-    int* i = new int;
+    int a;
+    while(a){
+        std::cout << "kjdlksfj";// gak dijalankan
+    }
 
-    *i = 78;
-
-    std::cout << i << " " << *i << std::endl;
     return 0;
 }

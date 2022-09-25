@@ -1,75 +1,57 @@
 #include <iostream>
 
-class nodaSaia{
-private:
-    TNode* head;
-    TNode* tail;
-public:
-    void 
-};
-
 struct TNode{
     int data;
     TNode* next;
 };
 
-int main(){
-    TNode* tempNode;  // node sementara sebagai sarana membuat node baru
-    TNode* curNode;  // current node untuk menentukan di node mana kita sekarang berada
-
-    TNode* Head;
-    TNode* lastNode;
-    // kita akan membuat linked list dengan urutan Head -> ............... -> lastNode
-
-    /*
-    new TNode ----> statement tersebut mereturn address yang memiliki kapasitas sebesar struct TNode
-    */
-    
-    // membuat head node
-    tempNode = new TNode;
-    Head = tempNode;
-    tempNode->data = 10;
-    tempNode->next = NULL;
-    lastNode = tempNode;
-    /*
-        | 10 |
-         head
-    */
-    
-
-    // nambah node
-    tempNode = new TNode;
-    tempNode->data = 5;
-    tempNode->next = NULL;
-    lastNode->next = tempNode;
-    lastNode = tempNode;
-    /*
-        |   10   |   5   |
-           head   lastNode
-    */
-
-
-    // nambah node
-    tempNode = new TNode;
-    tempNode->data = 6;
-    tempNode->next = NULL;
-    lastNode->next = tempNode;
-    lastNode = tempNode;
-    /*
-        |   10   |   5   |   6   |
-           head           lastNode
-    */
-
-
-    // inisialisasi curNode
-    curNode = Head;
-    
-    // display linked list
-    while(curNode){
-        printf("%d ", curNode->data);
-        curNode = curNode->next;
+class TNode_manager{
+private:
+    TNode* head;
+    TNode* tail;
+public:
+    TNode_manager(){
+        head = new TNode;
+        tail = new TNode;
     }
-    printf("\n");
+
+    void append(float input){
+        TNode* tempNode = new TNode;
+        tempNode->data = input;
+        tempNode->next = NULL;
+
+        if(head->next == NULL){  // first assignment
+            // std::cout << "masuk ke head" << std::endl;
+            head->data = tempNode->data;
+            head->next = tempNode;
+
+            tail = head;  // in the first assignment, head == tail
+        } else{
+            // std::cout << "masuk ke tail" << std::endl;
+            tail->next = tempNode;
+            tail = tempNode;
+        }
+
+
+    }
+    
+    void display(){
+        TNode* temp = head;
+        while(temp){
+            std::cout << temp << " - " <<  temp->data << " - " << temp->next << std::endl;
+            temp = temp->next;
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main(){
+    TNode_manager linkedList;
+    linkedList.append(5);
+    linkedList.append(6);
+    linkedList.append(7);
+
+    linkedList.display();
 
     return 0;
 }
