@@ -21,18 +21,14 @@ public:
         tempNode->next = NULL;
 
         if(head->next == NULL){  // first assignment
-            // std::cout << "masuk ke head" << std::endl;
             head->data = tempNode->data;
             head->next = tempNode;
 
             tail = head;  // in the first assignment, head == tail
         } else{
-            // std::cout << "masuk ke tail" << std::endl;
             tail->next = tempNode;
             tail = tempNode;
         }
-
-
     }
     
     void display(){
@@ -43,15 +39,23 @@ public:
         }
         std::cout << std::endl;
     }
+
+    void insert(int index, float input){
+
+    }
 };
 
 int main(){
-    TNode_manager linkedList;
-    linkedList.append(5);
-    linkedList.append(6);
-    linkedList.append(7);
+    TNode_manager myLinkedList;
+    myLinkedList.append(5);
+    myLinkedList.append(6);
+    myLinkedList.append(7);
+    myLinkedList.append(8);
+    myLinkedList.append(9);
 
-    linkedList.display();
+    myLinkedList.display();
+
+    myLinkedList.insert(2, 11);
 
     return 0;
 }
