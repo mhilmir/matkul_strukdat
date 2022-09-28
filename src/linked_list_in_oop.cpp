@@ -159,84 +159,84 @@ public:
 };
 
 int main(){
-    // unsigned int sec_to_microsec = 1000000;
-    unsigned int sec_to_milisec = 1000;
+    unsigned int sec_to_microsec = 1000000;
+    // unsigned int sec_to_milisec = 1000;
     TNode_manager myLinkedList;
 
     std::cout << "Add 5 elements" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     std::cout << "please wait..." << std::endl;
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
     myLinkedList.append(5);
     myLinkedList.append(6);
     myLinkedList.append(7);
     myLinkedList.append(8);
     myLinkedList.append(9);
     std::cout << "adding process completed" << std::endl << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
 
     // displaying linked list
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // insertion
     std::cout << "inserting 11 at index no-2" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     myLinkedList.insert(2, 11);
     std::cout << "insertion completed" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     std::cout << std::endl;
 
     // displaying linked list
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // insertion
     std::cout << "inserting 31.3 at index no-4" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     myLinkedList.insert(4, 31.3);
     std::cout << "insertion completed" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     std::cout << std::endl;
 
     // displaying linked list
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // remove
     std::cout << "deleting element at index no-3" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     myLinkedList.remove(3);
     std::cout << "delete process completed" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     std::cout << std::endl;
 
     // displaying linked list
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // searching
     std::cout << "searching 31.3 in linked list" << std::endl;
     std::cout << "please wait..." << std::endl;
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
     int x = myLinkedList.search(31.3);
     if(x == -1){
         std::cout << "unfortunately, the searched value was not found" << std::endl;
@@ -244,45 +244,45 @@ int main(){
         std::cout << "founded at index no. " << x << std::endl; 
     }
     std::cout << "\n";
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // get
     std::cout << "get element with index no. 4" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     int temp = myLinkedList.get(4);
     std::cout << "myLinkedList index no-4 : " << temp << std::endl;
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
     std::cout << "\n";
 
     // search and set
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
     std::cout << "search value 8 and set it to 77.7" << std::endl;
-    Sleep(1*sec_to_milisec);
-    // usleep(1*sec_to_microsec);
+    // Sleep(1*sec_to_milisec);
+    usleep(1*sec_to_microsec);
     std::cout << "please wait..." << std::endl;
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
     myLinkedList.set(myLinkedList.search(8), 77.7);
     std::cout << "done" << std::endl;
-    Sleep(0.5*sec_to_milisec);
-    // usleep(0.5*sec_to_microsec);
+    // Sleep(0.5*sec_to_milisec);
+    usleep(0.5*sec_to_microsec);
     std::cout << "\n";
     std::cout << "length : " << myLinkedList.getLength() << std::endl;
     myLinkedList.display();
-    Sleep(2*sec_to_milisec);
-    // usleep(2*sec_to_microsec);
+    // Sleep(2*sec_to_milisec);
+    usleep(2*sec_to_microsec);
 
     // get max and min
     std::cout << "maximum value : " << myLinkedList.max() << std::endl;
-    Sleep(1.5*sec_to_milisec);
-    // usleep(1.5 * sec_to_microsec);
+    // Sleep(1.5*sec_to_milisec);
+    usleep(1.5 * sec_to_microsec);
     std::cout << "minimum value : " << myLinkedList.min() << std::endl;
-    Sleep(1.5*sec_to_milisec);
-    // usleep(1.5 * sec_to_microsec);
+    // Sleep(1.5*sec_to_milisec);
+    usleep(1.5 * sec_to_microsec);
     std::cout << "\n";
 
     return 0;

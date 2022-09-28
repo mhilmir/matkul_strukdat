@@ -121,8 +121,7 @@ public:
     }
 };
 
-int main()
-{
+int main(){
     initwindow(500,500);
     Pesawat P;
     P.Skala(20);
