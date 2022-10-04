@@ -157,7 +157,12 @@ public:
         return minVAl;
     }
 
-    /* hmm bisa gak ya ditambahi fungsi reverse sama shift*/
+    void reverse(){
+        // TNode* tempIter_1 = head;  // for the beginning, tempIter_1 store 1st node
+        // TNode* tempIter_2 = tempIter_1->next;  // for the beginning, tempIter_2 store 2nd node
+        
+        // for(tempIter_1 = head)
+    }
 };
 
 int main(){
