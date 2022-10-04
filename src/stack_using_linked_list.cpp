@@ -59,8 +59,12 @@ public:
         } return 0;
     }
 
-    int getLength(){
+    int size(){
         return len;
+    }
+
+    iniNode* top(){
+        return topNode;
     }
 };
 
@@ -68,9 +72,15 @@ int main(){
     Stack stackKuhh;
     unsigned int sec_to_microsec = 1000000;
 
-    std::cout << "check dengan isEmpty() : ";
+    std::cout << "making a stack, please wait..." << std::endl;
+    usleep(2*sec_to_microsec);
+    std::cout << "completed !!!" << std::endl;
+    usleep(1*sec_to_microsec);
+
+    // isEmpty() checking
+    std::cout << std::endl << "check dengan isEmpty() : ";
     if(stackKuhh.isEmpty()){
-        std::cout << "ini stack khosong" << std::endl << std::endl;
+        std::cout << stackKuhh.isEmpty() << " ---> ini stack khosong" << std::endl << std::endl;
     }
 
     std::cout << "Add 5 elements" << std::endl;
@@ -86,9 +96,15 @@ int main(){
     usleep(1*sec_to_microsec);
 
     // displaying linked list
-    std::cout << "length : " << stackKuhh.getLength() << std::endl;
+    std::cout << "size() : " << stackKuhh.size() << std::endl;
     stackKuhh.display();
     usleep(2*sec_to_microsec);
+
+    // isEmpty() checking
+    std::cout << std::endl << "check dengan isEmpty() : ";
+    if(!stackKuhh.isEmpty()){
+        std::cout << stackKuhh.isEmpty() << " ---> sudah ada isinya" << std::endl;
+    }
 
     // remove
     std::cout << "\nPOP OUT 1 element" << std::endl;
@@ -99,7 +115,7 @@ int main(){
     std::cout << std::endl;
 
     // displaying linked list
-    std::cout << "length : " << stackKuhh.getLength() << std::endl;
+    std::cout << "size() : " << stackKuhh.size() << std::endl;
     stackKuhh.display();
     usleep(2*sec_to_microsec);
 
@@ -118,7 +134,7 @@ int main(){
     usleep(1*sec_to_microsec);
 
     // displaying linked list
-    std::cout << "length : " << stackKuhh.getLength() << std::endl;
+    std::cout << "size() : " << stackKuhh.size() << std::endl;
     stackKuhh.display();
     usleep(2*sec_to_microsec);
 
@@ -134,14 +150,20 @@ int main(){
     std::cout << std::endl;
 
     // displaying linked list
-    std::cout << "length : " << stackKuhh.getLength() << std::endl;
+    std::cout << "size() : " << stackKuhh.size() << std::endl;
     stackKuhh.display();
     usleep(2*sec_to_microsec);
 
-    std::cout << std::endl << "check dengan isEmpty() : ";
-    if(!stackKuhh.isEmpty()){
-        std::cout << "sudah ada isinya" << std::endl;
-    }
+
+    // top
+    std::cout << std::endl << "check the element on the top" << std::endl;
+    usleep(1*sec_to_microsec);
+    iniNode* nodeBaru = stackKuhh.top();
+    std::cout << "top -> data : " << nodeBaru->data << std::endl;
+    std::cout << "top -> address : " << nodeBaru << std::endl;
+
+    std::cout << "\nthank you" << std::endl;
+    usleep(1*sec_to_microsec);
 
     return 0;
 }
