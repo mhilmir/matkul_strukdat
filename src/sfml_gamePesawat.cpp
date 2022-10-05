@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <unistd.h>
+#include <string>
 
 #define PI 3.14159265359
 
@@ -11,14 +12,22 @@ unsigned int height_screen = 1000;
 
 class PesawatLakon{
 private :
-    float pos_x = width_screen * 0.5;
-    float pos_y = height_screen * 0.75;
-    float scale = 15;
+    float pos_x;
+    float pos_y;
+    float scale;
     float body_points[13][2] = {{1,-3}, {0.25,-3}, {0.25,-4.5}, {0,-5}, {-0.25,-4.5}, {-0.25,-3}, {-1,-3}, {-1,1.5}, {-1.5,1.75}, {-1.25,2}, {1.25,2}, {1.5,1.75}, {1,1.5}};  // for drawing body_points plane
     float wing_points[6][2] = {{1,-2}, {5,0}, {4,1}, {-4,1}, {-5,0}, {-1,-2}};  // for drawing wing_points plane
+    float tole_box;
+    float health;
 
 public:
-    PesawatLakon(){}
+    PesawatLakon(){
+        scale = 15;
+        pos_x = width_screen * 0.5;
+        pos_y = height_screen * 0.75;
+        tole_box = 2.5;
+        health = 100;
+    }
 
     void moveHor(int speed){
         pos_x = pos_x + speed;
@@ -58,6 +67,65 @@ public:
         window.draw(draw_body, 13+1, sf::LineStrip);
         window.draw(draw_wing, 6+1, sf::LineStrip);
     }
+
+    void drawPesawatHancur(sf::RenderWindow& window){
+        sf::Vertex draw_body[] = {
+            sf::Vertex(sf::Vector2f((pos_x + body_points[0][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[0][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[1][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[1][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[2][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[2][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[3][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[3][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[4][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[4][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[5][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[5][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[6][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[6][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[7][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[7][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[8][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[8][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[9][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[9][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[10][0]*scale) + (rand()%3)* scale,                     ( pos_y + body_points[10][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[11][0]*scale) + (rand()%3)* scale,                     ( pos_y + body_points[11][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[12][0]*scale) + (rand()%3)* scale,                     ( pos_y + body_points[12][1]*scale) + (rand()%3)* scale)),
+            sf::Vertex(sf::Vector2f((pos_x + body_points[0][0]*scale) + (rand()%3)* scale,                      (pos_y + body_points[0][1]*scale) + (rand()%3)* scale))
+        };
+        sf::Vertex draw_wing[] = {
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[0][0]*scale, pos_y + wing_points[0][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[1][0]*scale, pos_y + wing_points[1][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[2][0]*scale, pos_y + wing_points[2][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[3][0]*scale, pos_y + wing_points[3][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[4][0]*scale, pos_y + wing_points[4][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[5][0]*scale, pos_y + wing_points[5][1]*scale)),
+            sf::Vertex(sf::Vector2f(pos_x + wing_points[0][0]*scale, pos_y + wing_points[0][1]*scale))
+        };
+
+        window.draw(draw_body, 13+1, sf::LineStrip);
+        window.draw(draw_wing, 6+1, sf::LineStrip);
+    }
+
+    float batasBox_kiri(){
+        return pos_x - tole_box * scale;
+    }
+    float batasBox_kanan(){
+        return pos_x + tole_box * scale;
+    }
+    float batasBox_atas(){
+        return pos_y - tole_box * scale;
+    }
+    float batasBox_bawah(){
+        return pos_y + tole_box * scale;
+    }
+
+    void reduceHealth(float damage){
+        health = health + damage;
+    }
+
+    void displayHealth(sf::RenderWindow& window){
+        sf::RectangleShape rectangle(sf::Vector2f((health/100) * 220.f, 30.f));
+        rectangle.setPosition(sf::Vector2f(30.f, 940.f));
+        
+        window.draw(rectangle);
+    }
+
+    float getHealth(){
+        return health;
+    }
 };
 
 class PesawatMusuh{
@@ -65,18 +133,28 @@ private :
     float pos_x;
     float pos_y;
     float scale;
-    int speed_y;  // determine plane speed y
+    // int speed_y;  // determine plane speed y
     int speed_x;  // determine plane speed x
     float body_points[9][2] = {{0.5,0}, {0.5,-1.25}, {0,-1.5}, {-0.5,-1.25}, {-0.5,0}, {-0.25,2.75}, {-1,3}, {1,3}, {0.25,2.75}};  // for drawing body_points plane
     float wing_points[6][2] = {{2.5,0.5}, {3,1.75}, {2.5,-0.5}, {-2.5,-0.5}, {-3,1.75}, {-2.5,0.5}};  // for drawing wing_points plane
 
+    bool bullet_exist;
+    float pos_bullet_x;
+    float pos_bullet_y;
+    float rad_bullet;
+    int speed_bullet_y;
+
 public:
     PesawatMusuh(){
         scale = rand()%15 + 5;
-        speed_y = rand()%5 + 1;
+        // speed_y = rand()%5 + 1;
         speed_x = rand()%5 + 1;
         pos_x = rand() % width_screen + 10;
         pos_y = rand() % int(height_screen*0.25) + 10;
+
+        bullet_exist = false;
+        rad_bullet = 5;
+        speed_bullet_y = 5;
     }
 
     void moveRight(){
@@ -174,6 +252,37 @@ public:
         window.draw(draw_body, 9+1, sf::LineStrip);
         window.draw(draw_wing, 6+1, sf::LineStrip);
     }
+
+    void saveBulletPos(){
+        pos_bullet_x = pos_x;
+        pos_bullet_y = pos_y;
+    }
+
+    void moveBulletDown(){
+        pos_bullet_y = pos_bullet_y + speed_bullet_y;
+    }
+
+    void drawBullet(sf::RenderWindow& window){
+        sf::CircleShape circle(rad_bullet);
+        circle.setPosition(sf::Vector2f(pos_bullet_x, pos_bullet_y));
+        window.draw(circle);
+    }
+
+    float posBulletX(){
+        return pos_bullet_x;
+    }
+
+    float posBulletY(){
+        return pos_bullet_y;
+    }
+
+    bool isBulletExist(){
+        return bullet_exist;
+    }
+
+    void setBulletExistance(bool existance){
+        bullet_exist = existance;
+    }
 };
 
 
@@ -184,11 +293,11 @@ int main(){
     PesawatLakon jatayu;
 
     // create pesawat musuh
-    int num_opponents = 10;
+    int num_opponents = 6;
     PesawatMusuh opponents[num_opponents];
     // PesawatMusuh opponents_toLeft[num_opponents];
     for(int i=0; i<num_opponents; i++){
-        if(i<5){
+        if(i<(num_opponents/2)){
             opponents[i].rotatePesawat(90);
         } else{
             opponents[i].rotatePesawat(-90);
@@ -223,18 +332,47 @@ int main(){
             }
         }
 
+        // kalo peluru kena ke kita
+        for(int i=0; i<num_opponents; i++){
+            if(opponents[i].posBulletX() >= jatayu.batasBox_kiri() &&
+                opponents[i].posBulletX() <= jatayu.batasBox_kanan() &&
+                opponents[i].posBulletY() >= jatayu.batasBox_atas() &&
+                opponents[i].posBulletY() <= jatayu.batasBox_bawah()){
+                    opponents[i].setBulletExistance(false);
+                    jatayu.reduceHealth(-5);
+
+            }
+        }
+
 
         window.clear();
 
-        jatayu.drawPesawat(window);
+        jatayu.displayHealth(window);
+        if(jatayu.getHealth() == 0){
+            jatayu.drawPesawatHancur(window);
+        } else{
+            jatayu.drawPesawat(window);
+        }
         
         for(int i=0; i<num_opponents; i++){
-            if(i<5){
+            // for draw pesawat musuh
+            if(i<(num_opponents/2)){
                 opponents[i].moveRight();
             } else{
                 opponents[i].moveLeft();
             }
             opponents[i].drawPesawat(window);
+
+            // for draw bullet musuh
+            if(!(opponents[i].isBulletExist())){  // checking bullet existance
+                opponents[i].saveBulletPos();
+                opponents[i].setBulletExistance(true);
+            }
+            opponents[i].moveBulletDown();
+            if(opponents[i].posBulletY() > width_screen){
+                opponents[i].saveBulletPos();  // reset bullet position
+            }
+            opponents[i].drawBullet(window);
         }
 
         window.display();
