@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <unistd.h>
-#include <string>
 
 #define PI 3.14159265359
 
@@ -31,7 +30,7 @@ public:
         health = 100;
 
         for(int i=0; i<13; i++){
-            randValue_forBody[i] = (rand()%3) * scale;  // hmmm kayake randome tetep terus deh
+            randValue_forBody[i] = (rand()%3) * scale;
         }
         for(int i=0; i<6; i++){
             randValue_forWing[i] = (rand()%3) * scale;
@@ -447,11 +446,9 @@ int main(){
                 opponents[i].posBulletY() >= jatayu.batasBox_atas() &&
                 opponents[i].posBulletY() <= jatayu.batasBox_bawah()){
                     opponents[i].setBulletExistance(false);
-                    jatayu.reduceHealth(-100);
-
+                    jatayu.reduceHealth(-25);
             }
         }
-
 
         window.clear();
 
