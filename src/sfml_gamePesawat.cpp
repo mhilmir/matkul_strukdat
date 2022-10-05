@@ -79,14 +79,14 @@ public:
         pos_y = rand() % int(height_screen*0.25) + 10;
     }
 
-    void MoveRight(){
+    void moveRight(){
         pos_x = pos_x + speed_x;
         if(pos_x > width_screen){
             pos_x = pos_x - width_screen;
         }
     }
 
-    void MoveLeft(){
+    void moveLeft(){
         pos_x = pos_x - speed_x;
         if(pos_x < 0){
             pos_x = pos_x + width_screen;
@@ -184,14 +184,15 @@ int main(){
     PesawatLakon jatayu;
 
     // create pesawat musuh
-    int num_opponents = 5;
-    PesawatMusuh opponents_toRight[num_opponents];
-    PesawatMusuh opponents_toLeft[num_opponents];
+    int num_opponents = 10;
+    PesawatMusuh opponents[num_opponents];
+    // PesawatMusuh opponents_toLeft[num_opponents];
     for(int i=0; i<num_opponents; i++){
-        opponents_toRight[i].rotatePesawat(90);
-    }
-    for(int i=0; i<num_opponents; i++){
-        opponents_toLeft[i].rotatePesawat(-90);
+        if(i<5){
+            opponents[i].rotatePesawat(90);
+        } else{
+            opponents[i].rotatePesawat(-90);
+        }
     }
 
     while(window.isOpen()){
@@ -228,12 +229,12 @@ int main(){
         jatayu.drawPesawat(window);
         
         for(int i=0; i<num_opponents; i++){
-            opponents_toRight[i].MoveRight();
-            opponents_toRight[i].drawPesawat(window);
-        }
-        for(int i=0; i<num_opponents; i++){
-            opponents_toLeft[i].MoveLeft();
-            opponents_toLeft[i].drawPesawat(window);
+            if(i<5){
+                opponents[i].moveRight();
+            } else{
+                opponents[i].moveLeft();
+            }
+            opponents[i].drawPesawat(window);
         }
 
         window.display();
