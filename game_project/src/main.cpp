@@ -28,12 +28,9 @@ int main(){
     sf::RenderWindow window(sf::VideoMode(width_window, height_window), "windowOpened");
     window.setFramerateLimit(60);
 
-    sf::Vector2f vel;
-    float speed = 3;
-
     sf::Texture texture;
     texture.loadFromFile("game_project/assets/images/stickman.png");
-    
+
     sf::Sprite player;
     player.setTexture(texture);
     player.setPosition(width_window/2, height_window/2);
@@ -41,6 +38,23 @@ int main(){
     player.setScale(0.1, 0.1);
     // player.rotate(90);
     // rotate, use scale to -1,1
+
+    // vel for player
+    sf::Vector2f vel;
+    float speed = 3;
+
+    // enemies
+    sf::Sprite enemy[12];
+    for(int i=0; i<12; i++){
+        enemy[i].setTexture(texture);
+        enemy[i].setPosition(rand()%100+1180, rand()%720);
+        enemy[i].setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
+        enemy[i].setScale(-0.1, 0.1);
+    }
+
+    // vel for enemies
+    sf::Vector2f velEn[12];
+    float speedEn = 1.5;
 
     while(window.isOpen()){
         sf::Event e;
@@ -69,9 +83,32 @@ int main(){
             }
         }
 
+        // enemies follow always follow player
+        for(int i=0; i<12; i++){
+            float xP = player.getPosition().x;
+            float yP = player.getPosition().y;
+            float xEn = enemy[i].getPosition().x;
+            float yEn = enemy[i].getPosition().y;
+
+            if(yEn - yP > 0) velEn[i].y = -1;
+            else if(yEn - yP < 0) velEn[i].y = 1;
+            else velEn[i].y = 0;
+
+            if(xEn - xP > 0) {velEn[i].x = -1; enemy[i].setScale(-0.1, 0.1);}
+            else if(xEn - xP < 0) {velEn[i].x = 1; enemy[i].setScale(0.1, 0.1);}
+            else velEn[i].x = 0;
+
+            velEn[i] = normalize(velEn[i]) * speedEn;
+        }
+
         window.clear(sf::Color::White);
         player.move(vel);
         window.draw(player);
+        // enemies
+        for(int i=0; i<12; i++){
+            enemy[i].move(velEn[i]);
+            window.draw(enemy[i]);
+        }
         window.display();
     }
     return 0;
