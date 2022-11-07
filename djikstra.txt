@@ -1,0 +1,221 @@
+#include <iostream>
+#include <math.h>
+#include <graphics.h>
+#include <string.h>
+using namespace std;
+int dx,dy;
+int Board[12][12];
+
+void Dijkstra(int ny,int nx,int w)
+{
+
+    if (Board[ny][nx]>w )
+    {
+        Board[ny][nx]=w;
+        Dijkstra(ny+1,nx,w+1);
+        Dijkstra(ny-1,nx,w+1);
+        Dijkstra(ny,nx-1,w+1);
+        Dijkstra(ny,nx+1,w+1);
+
+
+    }
+
+
+    return;
+
+}
+
+
+
+void Silang(int ny,int nx)
+{
+    int x0,y0,x1,y1;
+    x0= (nx-1)*dx;
+    y0= (ny-1)*dy;
+
+    x1= (nx)*dx;
+    y1= (ny)*dy;
+    line(x0,y0,x1,y1);
+    line(x0,y1,x1,y0);
+
+}
+
+
+void Human(int ny,int nx,int c)
+{
+    setcolor(c);
+    int x0,y0,x1,y1;
+    x0= (nx-0.5)*dx;
+    y0= (ny-0.5)*dy;
+    for (float r = 3;r<dx/2-3;r++)
+    {
+      circle(x0,y0,r);
+    }
+
+
+}
+
+
+void PrintT(int ny,int nx,int c)
+{
+
+
+
+    int x0,y0,x1,y1;
+    x0= (nx-0.5)*dx;
+    y0= (ny-0.5)*dy;
+
+
+    char buffer [33];
+
+     itoa (c,buffer,10);
+     settextstyle(4,4,2);
+
+
+    outtextxy(x0,y0,buffer);
+
+
+
+}
+void DrawBoard()
+{
+     setcolor(WHITE);
+             for (int i = 0;i<=10;i++)
+         {
+             int x0 = 0;
+             int x1 = 11*dx;
+             int y0 = i*dy;
+             int y1 = i*dy;
+
+             line(x0,y0,x1,y1);
+             line(y0,x0,y1,x1);
+
+
+         }
+
+         for(int x = 1;x<=10;x++)
+         {
+             for(int y =1;y<=10;y++)
+             {
+                 if (Board[y][x]<0)
+                 {
+                     Silang(y,x);
+                 }
+             }
+
+         }
+}
+
+
+void InitBoard()
+{
+      for (int i = 1;i<=10;i++)
+     {
+         for (int j = 1;j<=10;j++)
+         {
+             Board[i][j]=1000;
+         }
+     }
+
+         for (int i = 0;i<=11;i++)
+     {
+         Board[0][i]=-1;
+         Board[11][i]=-1;
+         Board[i][0]=-1;
+         Board[i][11]=-1;
+
+     }
+
+     for (int i = 04;i<=6;i++)
+     {
+         Board[2][i]=-2;
+
+     }
+
+     for (int i = 04;i<=6;i++)
+     {
+         Board[i][4]=-2;
+
+     }
+
+      for (int i = 2;i<=8;i++)
+     {
+         Board[9][i]=-2;
+
+     }
+
+ for (int i = 1;i<=2;i++)
+     {
+         Board[7][i]=-2;
+     }
+
+
+
+}
+int main()
+{
+     initwindow(760,760);
+
+     dx = 75;
+     dy = 75;
+     int hx,hy;
+     hx =1;
+     hy = 1;
+
+
+
+
+     while (!kbhit())
+     {
+
+         cleardevice();
+         InitBoard();
+         DrawBoard();
+         Human(hy,hx,GREEN);
+         Human(10,10,YELLOW);
+
+         Dijkstra(10,10,0);
+         /*
+         for (int i= 1;i<=10;i++)
+         {
+             for (int j=1;j<=10;j++)
+             {
+                 PrintT(i,j,Board[i][j]);
+             }
+         }*/
+
+
+         int xc;
+         int  yc;
+         int ws ;
+         ws = Board[hy][hx];
+
+         for (int i =-1;i<=1;i++)
+         {
+             for (int j = -1;j<=1;j++)
+             {
+                 xc = hx +i;
+                 yc = hy +j;
+                 if ((Board[yc][xc]>0)&&(Board[yc][xc]<ws))
+                 {
+                     ws = Board[yc][xc];
+                     hx = xc;
+                     hy = yc;
+                 }
+
+
+             }
+         }
+
+
+
+
+
+         delay(1000);
+
+
+     }
+       closegraph();
+
+    return 0;
+}

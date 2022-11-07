@@ -54,7 +54,7 @@ int main(){
 
     // vel for enemies
     sf::Vector2f velEn[12];
-    float speedEn = 1.5;
+    float speedEn = 1;
 
     while(window.isOpen()){
         sf::Event e;
@@ -62,11 +62,13 @@ int main(){
             if(e.type == sf::Event::Closed){
                 window.close();
             }
+
             if(e.type == sf::Event::KeyPressed){
                 if(e.key.code == sf::Keyboard::W)
                     vel.y = -1;
                 else if(e.key.code == sf::Keyboard::S)
                     vel.y = 1;
+
                 if(e.key.code == sf::Keyboard::A){
                     vel.x = -1;
                     player.setScale(-0.1,0.1);
@@ -78,7 +80,7 @@ int main(){
                 
                 vel = normalize(vel) * speed;
             }
-            if(e.type == sf::Event::KeyReleased){
+            if(e.type == sf::Event::KeyReleased){  // garai macet
                 vel = sf::Vector2f(0,0);
             }
         }
