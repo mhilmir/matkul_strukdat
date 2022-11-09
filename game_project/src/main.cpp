@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 #include <cmath>
 
 // global var
-unsigned int width_window = 1280;
-unsigned int height_window = 720;
+unsigned int width_window = 1920;
+unsigned int height_window = 1080;
 
 sf::Vector2f normalize(sf::Vector2f vector)
 {
@@ -25,90 +27,90 @@ public:
 };
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(width_window, height_window), "windowOpened");
+    sf::RenderWindow window(sf::VideoMode(width_window, height_window), "Escape From The Zoo");
     window.setFramerateLimit(60);
 
     sf::Texture texture;
     texture.loadFromFile("game_project/assets/images/stickman.png");
 
+    // player
     sf::Sprite player;
+    sf::Vector2f velP;
+    float speedP = 5;  // player movement speed
     player.setTexture(texture);
     player.setPosition(width_window/2, height_window/2);
     player.setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
     player.setScale(0.1, 0.1);
-    // player.rotate(90);
-    // rotate, use scale to -1,1
-
-    // vel for player
-    sf::Vector2f vel;
-    float speed = 3;
+    bool isMoveP;  // is WASD pressed
 
     // enemies
-    sf::Sprite enemy[12];
-    for(int i=0; i<12; i++){
+    const int num_enemy = 12;
+    sf::Sprite enemy[num_enemy];
+    sf::Vector2f velEn[num_enemy];
+    float speedEn[num_enemy];  // enemy movement speed
+    for(int i=0; i<num_enemy; i++){
         enemy[i].setTexture(texture);
         enemy[i].setPosition(rand()%100+1180, rand()%720);
         enemy[i].setOrigin(texture.getSize().x / 2, texture.getSize().y / 2);
         enemy[i].setScale(-0.1, 0.1);
+        speedEn[i] = float(rand()%5 + 1) / 2;
     }
 
-    // vel for enemies
-    sf::Vector2f velEn[12];
-    float speedEn = 1;
-
+    // MAIN LOOP
     while(window.isOpen()){
         sf::Event e;
         while(window.pollEvent(e)){
-            if(e.type == sf::Event::Closed){
-                window.close();
-            }
+            if(e.type == sf::Event::Closed) window.close();
+        }
 
-            if(e.type == sf::Event::KeyPressed){
-                if(e.key.code == sf::Keyboard::W)
-                    vel.y = -1;
-                else if(e.key.code == sf::Keyboard::S)
-                    vel.y = 1;
+        // player movement
+        isMoveP = false;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            velP.y = -1;
+            isMoveP = true;
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+            velP.y = 1;
+            isMoveP = true;
+        }
+        else velP.y = 0;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+            velP.x = -1;
+            isMoveP = true;
+            player.setScale(sf::Vector2f(-0.1f, 0.1f));
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            velP.x = 1;
+            isMoveP = true;
+            player.setScale(sf::Vector2f(0.1f, 0.1f));
+        }
+        else velP.x = 0;
 
-                if(e.key.code == sf::Keyboard::A){
-                    vel.x = -1;
-                    player.setScale(-0.1,0.1);
-                }
-                else if(e.key.code == sf::Keyboard::D){
-                    vel.x = 1;
-                    player.setScale(0.1,0.1);
-                }
-                
-                vel = normalize(vel) * speed;
-            }
-            if(e.type == sf::Event::KeyReleased){  // garai macet
-                vel = sf::Vector2f(0,0);
-            }
+        if(isMoveP){
+            velP = normalize(velP);
+            velP.x = velP.x * speedP;
+            velP.y = velP.y * speedP;
+            player.move(velP);
         }
 
         // enemies follow always follow player
-        for(int i=0; i<12; i++){
-            float xP = player.getPosition().x;
-            float yP = player.getPosition().y;
+        float xP = player.getPosition().x;
+        float yP = player.getPosition().y;
+        for(int i=0; i<num_enemy; i++){
             float xEn = enemy[i].getPosition().x;
             float yEn = enemy[i].getPosition().y;
 
-            if(yEn - yP > 0) velEn[i].y = -1;
-            else if(yEn - yP < 0) velEn[i].y = 1;
-            else velEn[i].y = 0;
-
-            if(xEn - xP > 0) {velEn[i].x = -1; enemy[i].setScale(-0.1, 0.1);}
-            else if(xEn - xP < 0) {velEn[i].x = 1; enemy[i].setScale(0.1, 0.1);}
-            else velEn[i].x = 0;
-
-            velEn[i] = normalize(velEn[i]) * speedEn;
+            if(yEn - yP > 0) enemy[i].move(sf::Vector2f(0.f, -speedEn[i]));
+            if(yEn - yP < 0) enemy[i].move(sf::Vector2f(0.f, speedEn[i]));
+            if(xEn - xP > 0) {enemy[i].move(sf::Vector2f(-speedEn[i], 0.f)); enemy[i].setScale(-0.1, 0.1);}
+            if(xEn - xP < 0) {enemy[i].move(sf::Vector2f(speedEn[i], 0.f)); enemy[i].setScale(0.1, 0.1);}
         }
 
         window.clear(sf::Color::White);
-        player.move(vel);
+        // draw player
         window.draw(player);
-        // enemies
-        for(int i=0; i<12; i++){
-            enemy[i].move(velEn[i]);
+        // draw enemies
+        for(int i=0; i<num_enemy; i++){
             window.draw(enemy[i]);
         }
         window.display();
