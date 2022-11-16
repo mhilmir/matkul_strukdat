@@ -2,6 +2,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <cmath>
+#include <vector>
 
 // global var
 unsigned int width_window = 1920;
@@ -31,7 +32,7 @@ int main(){
     window.setFramerateLimit(60);
 
     sf::Texture texture;
-    texture.loadFromFile("game_project/assets/images/stickman.png");
+    texture.loadFromFile("assets/images/stickman.png");
 
     // player
     sf::Sprite player;
@@ -43,8 +44,14 @@ int main(){
     player.setScale(0.1, 0.1);
     bool isMoveP;  // is WASD pressed
 
+    // projectiles
+    
+
     // enemies
     const int num_enemy = 12;
+    // std::vector <sf::Sprite> enemy;
+    // std::vector <sf::Vector2f> velEn;
+    // std::vector <float> speedEn;
     sf::Sprite enemy[num_enemy];
     sf::Vector2f velEn[num_enemy];
     float speedEn[num_enemy];  // enemy movement speed
