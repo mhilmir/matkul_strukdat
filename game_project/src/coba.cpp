@@ -2,6 +2,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
+
 int main(){
     sf::Vector2f vel;
     vel.x = 5;
