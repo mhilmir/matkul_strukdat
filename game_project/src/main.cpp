@@ -15,7 +15,7 @@ int main(){
     texture.loadFromFile("assets/images/stickman.png");
 
     // player
-    Lakon Varinsdottir;
+    Lakon Kratosss;
 
     // projectiles
     sf::CircleShape projectile;
@@ -43,11 +43,11 @@ int main(){
             if(e.type == sf::Event::Closed) window.close();
 
         // player movement
-        Varinsdottir.movement();
+        Kratosss.movement();
 
         // enemies follow always follow player
-        float xP = Varinsdottir.getPosition().x;
-        float yP = Varinsdottir.getPosition().y;
+        float xP = Kratosss.getPosition().x;
+        float yP = Kratosss.getPosition().y;
         for(int i=0; i<enemies.size(); i++){
             float xEn = enemies[i].getPosition().x;
             float yEn = enemies[i].getPosition().y;
@@ -60,7 +60,7 @@ int main(){
 
         window.clear(sf::Color::White);
         // draw player
-        window.draw(Varinsdottir);
+        window.draw(Kratosss);
         // draw enemies
         for(int i=0; i<enemies.size(); i++){
             window.draw(enemies[i]);

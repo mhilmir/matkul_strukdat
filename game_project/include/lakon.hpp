@@ -11,7 +11,6 @@
 class Lakon : public sf::Sprite{
 private:
     int iter_anim;
-    int iter_anim_changer;
     bool isMove;
     char whereToMove;
     float speed;
@@ -26,8 +25,7 @@ private:
 
 public:
     Lakon(float spd = 5){
-        Lakon::iter_anim = -1;
-        Lakon::iter_anim_changer = 1;
+        Lakon::iter_anim = 0;
         Lakon::isMove = false;
         Lakon::speed = spd;
         Lakon::vel = sf::Vector2f(0.f,0.f);
@@ -37,6 +35,7 @@ public:
         Lakon::setTextureRect(sf::IntRect(4*spriteSize.x, 2*spriteSize.y, spriteSize.x, spriteSize.y));
         Lakon::setPosition(global::width_window/2, global::height_window/2);
         Lakon::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
+        Lakon::setScale(sf::Vector2f(1.f, 1.f));
 
         moveUpAnim.reserve(9);
         moveLeftAnim.reserve(9);
@@ -86,13 +85,11 @@ public:
     }
 
     void movement_animation(){
-        if(Lakon::iter_anim < 0) iter_anim_changer = 1;
-        else if(Lakon::iter_anim > 6) iter_anim_changer = -1;
-        iter_anim = iter_anim + iter_anim_changer;
+        if(clk.getElapsedTime().asSeconds() > 0.1f){
+            if(Lakon::iter_anim == 8) iter_anim = -1;
+            iter_anim++;
+            // printf("%d\n", iter_anim);
 
-        printf("%d\n", iter_anim);
-
-        if(clk.getElapsedTime().asSeconds() > 0.5f){
             switch(Lakon::whereToMove){
                 case 'w':
                     Lakon::setTextureRect(moveUpAnim[iter_anim]);
