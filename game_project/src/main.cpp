@@ -19,8 +19,9 @@ int main(){
 
     // projectiles
     sf::CircleShape projectile;
+    projectile.setRadius(10.f);
+    projectile.setOrigin(sf::Vector2f(10.f, 10.f));
     std::vector <sf::CircleShape> projectiles;
-    
 
     // enemy
     std::vector <sf::Sprite> enemies(12);
@@ -45,7 +46,10 @@ int main(){
         // player movement
         Kratosss.movement();
 
-        // enemies follow always follow player
+        // projectiles movement
+        
+
+        // enemies movement
         float xP = Kratosss.getPosition().x;
         float yP = Kratosss.getPosition().y;
         for(int i=0; i<enemies.size(); i++){
@@ -61,6 +65,10 @@ int main(){
         window.clear(sf::Color::White);
         // draw player
         window.draw(Kratosss);
+        // draw projectiles
+        for(int i=0; i<projectiles.size(); i++){
+            window.draw(projectiles[i]);
+        }
         // draw enemies
         for(int i=0; i<enemies.size(); i++){
             window.draw(enemies[i]);
