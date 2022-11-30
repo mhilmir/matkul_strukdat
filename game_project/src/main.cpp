@@ -6,6 +6,7 @@
 #include <vector>
 #include "../include/global.hpp"
 #include "../include/lakon.hpp"
+#include "../include/fruit.hpp"
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(global::width_window, global::height_window), "Escape From The Zoo");
@@ -18,10 +19,7 @@ int main(){
     Lakon Kratosss;
 
     // projectiles
-    sf::CircleShape projectile;
-    projectile.setRadius(10.f);
-    projectile.setOrigin(sf::Vector2f(10.f, 10.f));
-    std::vector <sf::CircleShape> projectiles;
+    std::vector<Fruit> projectiles;
 
     // enemy
     std::vector <sf::Sprite> enemies(12);
@@ -46,8 +44,16 @@ int main(){
         // player movement
         Kratosss.movement();
 
+        // add projectiles
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            Fruit Pisang(Kratosss.getPosition());
+            Pisang.determine_vel(Kratosss.getPosition(), sf::Mouse::getPosition());
+            projectiles.push_back(Pisang);
+        }
         // projectiles movement
-        
+        for(int i=0; i<projectiles.size(); i++){
+            projectiles[i].movement();
+        }
 
         // enemies movement
         float xP = Kratosss.getPosition().x;

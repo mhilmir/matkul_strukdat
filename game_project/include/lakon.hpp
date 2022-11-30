@@ -11,7 +11,7 @@
 class Lakon : public sf::Sprite{
 private:
     int iter_anim;
-    bool isMove;
+    bool lakon_move;
     char whereToMove;
     float speed;
     sf::Clock clk;
@@ -26,7 +26,7 @@ private:
 public:
     Lakon(float spd = 5){
         Lakon::iter_anim = 0;
-        Lakon::isMove = false;
+        Lakon::lakon_move = false;
         Lakon::speed = spd;
         Lakon::vel = sf::Vector2f(0.f,0.f);
         Lakon::texture.loadFromFile("assets/images/lakon.png");
@@ -50,32 +50,32 @@ public:
     }
 
     void movement(){
-        Lakon::isMove = false;
+        Lakon::lakon_move = false;
         Lakon::whereToMove = NULL;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             Lakon::vel.y = -1;
-            Lakon::isMove = true;
+            Lakon::lakon_move = true;
             Lakon::whereToMove = 'w';
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
             Lakon::vel.y = 1;
-            Lakon::isMove = true;
+            Lakon::lakon_move = true;
             Lakon::whereToMove = 's';
         }
         else Lakon::vel.y = 0;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             Lakon::vel.x = -1;
-            Lakon::isMove = true;
+            Lakon::lakon_move = true;
             Lakon::whereToMove = 'a';
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             Lakon::vel.x = 1;
-            Lakon::isMove = true;
+            Lakon::lakon_move = true;
             Lakon::whereToMove = 'd';
         }
         else Lakon::vel.x = 0;
 
-        if(Lakon::isMove){
+        if(Lakon::lakon_move){
             Lakon::vel = global::normalize(Lakon::vel);
             Lakon::vel.x = Lakon::vel.x * Lakon::speed;
             Lakon::vel.y = Lakon::vel.y * Lakon::speed;
