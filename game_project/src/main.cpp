@@ -53,6 +53,7 @@ int main(){
         // projectiles movement
         for(int i=0; i<projectiles.size(); i++){
             projectiles[i].movement();
+            printf("pos_x: %f\npos_y: %f", projectiles[0].getPosition().x, projectiles[0].getPosition().y);
         }
 
         // enemies movement

@@ -26,7 +26,7 @@ public:
         Fruit::spriteSize = sf::Vector2i(20, 32);
         Fruit::setPosition(sf::Vector2f(lakon_pos));
         Fruit::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
-        Fruit::setScale(sf::Vector2f(0.5f, 0.5f));
+        Fruit::setScale(sf::Vector2f(2.f, 2.f));
     }
 
     void determine_vel(sf::Vector2f lakon_pos, sf::Vector2i mouse_pos){
@@ -38,12 +38,15 @@ public:
         vel_raw = sqrt(pow(vel_x_raw, 2) + pow(vel_y_raw, 2));
         Fruit::vel.x = vel_x_raw / vel_raw;
         Fruit::vel.y = vel_y_raw / vel_raw;
+
+        Fruit::vel.x = Fruit::vel.x * Fruit::speed;
+        Fruit::vel.y = Fruit::vel.y * Fruit::speed;
+
+        // printf("vel_x: %f\nvel_y: %f", Fruit::vel.x, Fruit::vel.y);
     }
 
     void movement(){
         if(Fruit::fruit_move){
-            Fruit::vel.x = Fruit::vel.x * Fruit::speed;
-            Fruit::vel.y = Fruit::vel.y * Fruit::speed;
             Fruit::move(Fruit::vel);
             Fruit::movement_animation();
         }
@@ -64,4 +67,4 @@ public:
 };
 
 
-#endif __FRUIT_HPP__
+#endif
