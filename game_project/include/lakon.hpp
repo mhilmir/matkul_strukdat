@@ -31,21 +31,21 @@ public:
         Lakon::vel = sf::Vector2f(0.f,0.f);
         Lakon::texture.loadFromFile("assets/images/lakon.png");
         Lakon::setTexture(texture);
-        Lakon::spriteSize = sf::Vector2i(64, 64);
+        Lakon::spriteSize = sf::Vector2i(32, 64);
         Lakon::setTextureRect(sf::IntRect(4*spriteSize.x, 2*spriteSize.y, spriteSize.x, spriteSize.y));
         Lakon::setPosition(global::width_window/2, global::height_window/2);
         Lakon::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
         Lakon::setScale(sf::Vector2f(1.f, 1.f));
 
-        moveUpAnim.reserve(9);
-        moveLeftAnim.reserve(9);
-        moveDownAnim.reserve(9);
-        moveRightAnim.reserve(9);
-        for(int i=0; i<9; i++){
-            moveUpAnim[i] = sf::IntRect(i*spriteSize.x, 8*spriteSize.y, spriteSize.x, spriteSize.y);
-            moveLeftAnim[i] = sf::IntRect(i*spriteSize.x, 9*spriteSize.y, spriteSize.x, spriteSize.y);
-            moveDownAnim[i] = sf::IntRect(i*spriteSize.x, 10*spriteSize.y, spriteSize.x, spriteSize.y);
-            moveRightAnim[i] = sf::IntRect(i*spriteSize.x, 11*spriteSize.y, spriteSize.x, spriteSize.y);
+        moveUpAnim.reserve(8);
+        moveLeftAnim.reserve(8);
+        moveDownAnim.reserve(8);
+        moveRightAnim.reserve(8);
+        for(int i=0; i<8; i++){
+            moveDownAnim[i] = sf::IntRect(i*spriteSize.x, 0*spriteSize.y, spriteSize.x, spriteSize.y);
+            moveUpAnim[i] = sf::IntRect(i*spriteSize.x, 1*spriteSize.y, spriteSize.x, spriteSize.y);
+            moveRightAnim[i] = sf::IntRect(i*spriteSize.x, 2*spriteSize.y, spriteSize.x, spriteSize.y);
+            moveLeftAnim[i] = sf::IntRect(i*spriteSize.x, 3*spriteSize.y, spriteSize.x, spriteSize.y);
         }
     }
 
@@ -86,7 +86,7 @@ public:
 
     void movement_animation(){
         if(clk.getElapsedTime().asSeconds() > 0.1f){
-            if(Lakon::iter_anim == 8) iter_anim = -1;
+            if(Lakon::iter_anim == 7) iter_anim = -1;
             iter_anim++;
             // printf("%d\n", iter_anim);
 
