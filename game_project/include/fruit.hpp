@@ -17,14 +17,14 @@ private:
     sf::Vector2i spriteSize;
     sf::Texture texture;
 public:
-    Fruit(sf::Vector2f lakon_pos, float spd = 15){
+    Fruit(float spd = 15){
         Fruit::fruit_move = true;
         Fruit::speed = spd;
         Fruit::vel = sf::Vector2f(0.f, 0.f);
         Fruit::texture.loadFromFile("assets/images/pisang.png");
         Fruit::setTexture(texture);
         Fruit::spriteSize = sf::Vector2i(20, 32);
-        Fruit::setPosition(sf::Vector2f(lakon_pos));
+        // Fruit::setPosition(sf::Vector2f(lakon_pos));
         Fruit::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
         Fruit::setScale(sf::Vector2f(2.f, 2.f));
     }
@@ -55,6 +55,7 @@ public:
     void movement_animation(){
         if(clk.getElapsedTime().asSeconds() > 0.1f){
             Fruit::rotate(45.f);
+            clk.restart();
         }
     }
 

@@ -35,7 +35,7 @@ public:
         Lakon::setTextureRect(sf::IntRect(4*spriteSize.x, 2*spriteSize.y, spriteSize.x, spriteSize.y));
         Lakon::setPosition(global::width_window/2, global::height_window/2);
         Lakon::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
-        Lakon::setScale(sf::Vector2f(1.f, 1.f));
+        Lakon::setScale(sf::Vector2f(1.2f, 1.2f));
 
         moveUpAnim.reserve(8);
         moveLeftAnim.reserve(8);
