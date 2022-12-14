@@ -53,7 +53,7 @@ public:
     }
 
     void movement_animation(){
-        if(clk.getElapsedTime().asSeconds() > 0.1f){
+        if(clk.getElapsedTime().asSeconds() > 0.05f){
             Fruit::rotate(45.f);
             clk.restart();
         }

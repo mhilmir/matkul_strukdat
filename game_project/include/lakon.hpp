@@ -12,7 +12,8 @@ class Lakon : public sf::Sprite{
 private:
     int iter_anim;
     bool lakon_move;
-    char whereToMove;
+    char command;
+    char last_command;
     float speed;
     sf::Clock clk;
     sf::Vector2f vel;
@@ -51,27 +52,31 @@ public:
 
     void movement(){
         Lakon::lakon_move = false;
-        Lakon::whereToMove = NULL;
+        Lakon::command = NULL;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             Lakon::vel.y = -1;
             Lakon::lakon_move = true;
-            Lakon::whereToMove = 'w';
+            Lakon::command = 'w';
+            Lakon::last_command = 'w';
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
             Lakon::vel.y = 1;
             Lakon::lakon_move = true;
-            Lakon::whereToMove = 's';
+            Lakon::command = 's';
+            Lakon::last_command = 's';
         }
         else Lakon::vel.y = 0;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
             Lakon::vel.x = -1;
             Lakon::lakon_move = true;
-            Lakon::whereToMove = 'a';
+            Lakon::command = 'a';
+            Lakon::last_command = 'a';
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             Lakon::vel.x = 1;
             Lakon::lakon_move = true;
-            Lakon::whereToMove = 'd';
+            Lakon::command = 'd';
+            Lakon::last_command = 'd';
         }
         else Lakon::vel.x = 0;
 
@@ -81,6 +86,23 @@ public:
             Lakon::vel.y = Lakon::vel.y * Lakon::speed;
             Lakon::move(Lakon::vel);
             Lakon::movement_animation();
+        }else{
+            switch(Lakon::last_command){
+                case 'w':
+                    Lakon::setTextureRect(moveUpAnim[0]);
+                    break;
+                case 's':
+                    Lakon::setTextureRect(moveDownAnim[0]);
+                    break;
+                case 'a':
+                    Lakon::setTextureRect(moveLeftAnim[0]);
+                    break;
+                case 'd':
+                    Lakon::setTextureRect(moveRightAnim[0]);
+                    break;
+                default:
+                    Lakon::setTextureRect(moveDownAnim[0]);
+            }
         }
     }
 
@@ -90,7 +112,7 @@ public:
             iter_anim++;
             // printf("%d\n", iter_anim);
 
-            switch(Lakon::whereToMove){
+            switch(Lakon::command){
                 case 'w':
                     Lakon::setTextureRect(moveUpAnim[iter_anim]);
                     break;
