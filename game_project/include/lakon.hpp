@@ -33,10 +33,10 @@ public:
         Lakon::texture.loadFromFile("assets/images/lakon.png");
         Lakon::setTexture(texture);
         Lakon::spriteSize = sf::Vector2i(32, 64);
-        Lakon::setTextureRect(sf::IntRect(4*spriteSize.x, 2*spriteSize.y, spriteSize.x, spriteSize.y));
+        Lakon::setTextureRect(sf::IntRect(0*spriteSize.x, 0*spriteSize.y, spriteSize.x, spriteSize.y));
         Lakon::setPosition(global::width_window/2, global::height_window/2);
         Lakon::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
-        Lakon::setScale(sf::Vector2f(1.2f, 1.2f));
+        Lakon::setScale(sf::Vector2f(1.f, 1.f));
 
         moveUpAnim.reserve(8);
         moveLeftAnim.reserve(8);
@@ -86,7 +86,7 @@ public:
             Lakon::vel.y = Lakon::vel.y * Lakon::speed;
             Lakon::move(Lakon::vel);
             Lakon::movement_animation();
-        }else{
+        }else{  // if there is no command yet, set animation to "standing" mode
             switch(Lakon::last_command){
                 case 'w':
                     Lakon::setTextureRect(moveUpAnim[0]);
@@ -108,7 +108,7 @@ public:
 
     void movement_animation(){
         if(clk.getElapsedTime().asSeconds() > 0.1f){
-            if(Lakon::iter_anim == 7) iter_anim = -1;
+            if(Lakon::iter_anim == 7) iter_anim = -1;  // 0 to 7
             iter_anim++;
             // printf("%d\n", iter_anim);
 

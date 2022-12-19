@@ -9,8 +9,8 @@
 
 namespace global{
     // window size
-    unsigned int width_window = 1920;
-    unsigned int height_window = 1080;
+    unsigned int width_window = 1280;
+    unsigned int height_window = 720;
 
     // normalize function for vel
     sf::Vector2f normalize(sf::Vector2f vector)
