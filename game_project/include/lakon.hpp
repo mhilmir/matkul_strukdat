@@ -10,11 +10,13 @@
 
 class Lakon : public sf::Sprite{
 private:
+    float health;
     int iter_anim;
     bool lakon_move;
     char command;
     char last_command;
     float speed;
+    float clk_threshold;
     sf::Clock clk;
     sf::Vector2f vel;
     sf::Vector2i spriteSize;
@@ -26,6 +28,8 @@ private:
 
 public:
     Lakon(float spd = 5){
+        Lakon::health = 100.f;
+        Lakon::clk_threshold = 0.05f;
         Lakon::iter_anim = 0;
         Lakon::lakon_move = false;
         Lakon::speed = spd;
@@ -36,7 +40,7 @@ public:
         Lakon::setTextureRect(sf::IntRect(0*spriteSize.x, 0*spriteSize.y, spriteSize.x, spriteSize.y));
         Lakon::setPosition(global::width_window/2, global::height_window/2);
         Lakon::setOrigin(spriteSize.x / 2, spriteSize.y / 2);
-        Lakon::setScale(sf::Vector2f(1.f, 1.f));
+        Lakon::setScale(sf::Vector2f(1.1f, 1.1f));
 
         moveUpAnim.reserve(8);
         moveLeftAnim.reserve(8);
@@ -50,9 +54,28 @@ public:
         }
     }
 
+    float get_health(){
+        return Lakon::health;
+    }
+
+    void reduceHealth(float damage){
+        if(Lakon::health <= 0){
+            Lakon::health = 0;
+        } else{
+            Lakon::health = Lakon::health + damage;
+        }
+    }
+
+    void displayHealth(sf::RenderWindow& window){
+        sf::RectangleShape rectangle(sf::Vector2f((Lakon::health/100) * 220.f, 30.f));
+        rectangle.setPosition(sf::Vector2f(1600.f, 40.f));
+        
+        window.draw(rectangle);
+    }
+
     void movement(){
         Lakon::lakon_move = false;
-        Lakon::command = NULL;
+        Lakon::command = '\0';
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             Lakon::vel.y = -1;
             Lakon::lakon_move = true;
@@ -107,7 +130,7 @@ public:
     }
 
     void movement_animation(){
-        if(clk.getElapsedTime().asSeconds() > 0.1f){
+        if(clk.getElapsedTime().asSeconds() > Lakon::clk_threshold){
             if(Lakon::iter_anim == 7) iter_anim = -1;  // 0 to 7
             iter_anim++;
             // printf("%d\n", iter_anim);
