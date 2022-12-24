@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\begin{document}
+
+\author{Octavianus Immanuel Christpurwanto}
+\title{Proposal Projek Game}
+\date{September 2022}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+\chapter{Pendahuluan}
+\section{Latar Belakang}
+
+ \textit{Game} merupakan jenis hiburan yang pada zaman ini sering sekali digunakan banyak orang, mulai dari anak kecil hingga orang dewasa, untuk melepaskan rasa lelah setelah lama beraktivitas. Bukan hanya untuk melepas rasa lelah setelah beraktivitas, \textit{game} juga bisa digunakan untuk melatih pola pikir seseorang.
+ 
+ Banyaknya game yang sudah berkembang saat ini tentunya membuat game itu memiliki setiap pengelompokkan berdasarkan \textit{gameplay} dari banyak game tersebut, yang biasa disebut \textit{genre game.}
+ 
+ 
+\chapter{Rencana Game} 
+\section{Cara Kerja Game}
+\begin{itemize}
+	\item Game dimulai dengan player harus mengclick layar
+	\item Kemudian, player harus tetap mengclick layar secara teratur agar model player tidak jatuh ke bawah, yang mana jika jatuh ke bawah akan membuat permainan selesai
+	\item Tujuan dari game ini adalah agar player dapat bertahan hidup selama mungkin dengan cara mengclick layar dan mengumpulkan orb untuk menambah skor dan bertahan hidup
+	\item Jika terdapat orb yang tidak diambil oleh player, maka permainan juga akan berakhir dan player harus mengulang dari awal serta skor direset ke 0
+\end{itemize}
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}

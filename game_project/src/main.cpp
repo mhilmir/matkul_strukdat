@@ -35,7 +35,7 @@ int main(){
     menu_sprite.setScale(sf::Vector2f(1/1.667, 1/2.222));
     sf::Text text1, text2;
     text1.setFont(font_African);
-    text1.setString("Bruhh, RUN !!!!");
+    text1.setString("Bruh, RUN...!!!");
     text1.setCharacterSize(70);
     text1.setFillColor(sf::Color::Green);
     text1.setStyle(sf::Text::Bold);
@@ -72,7 +72,7 @@ int main(){
     bool ulang = 1;
     while(ulang == 1){
 
-    sf::RenderWindow window(sf::VideoMode(global::width_window, global::height_window), "bruh, RUN !!!");
+    sf::RenderWindow window(sf::VideoMode(global::width_window, global::height_window), "Bruh, RUN...!!!");
     window.setFramerateLimit(60);
 
     // load map and environment

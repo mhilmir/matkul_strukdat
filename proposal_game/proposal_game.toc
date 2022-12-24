@@ -1,0 +1,11 @@
+\contentsline {chapter}{\numberline {1}Pendahuluan}{1}%
+\contentsline {section}{\numberline {1.1}Latar Belakang}{1}%
+\contentsline {section}{\numberline {1.2}Penjelasan Game}{2}%
+\contentsline {chapter}{\numberline {2}Desain}{3}%
+\contentsline {section}{\numberline {2.1}Desain Game dan Karakter}{3}%
+\contentsline {chapter}{\numberline {3}Struktur Data Karakter}{7}%
+\contentsline {section}{\numberline {3.1}Codingan lakon.hpp}{7}%
+\contentsline {section}{\numberline {3.2}Codingan animal.hpp}{11}%
+\contentsline {section}{\numberline {3.3}Codingan food.hpp}{17}%
+\contentsline {chapter}{\numberline {4}Struktur Penyimpanan Data}{20}%
+\contentsline {chapter}{\numberline {5}Kesimpulan}{22}%

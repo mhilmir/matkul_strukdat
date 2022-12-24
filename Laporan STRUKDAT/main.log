@@ -1,0 +1,257 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.9.14)  24 DEC 2022 16:35
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@chapter=\count168
+\c@section=\count169
+\c@subsection=\count170
+\c@subsubsection=\count171
+\c@paragraph=\count172
+\c@subparagraph=\count173
+\c@figure=\count174
+\c@table=\count175
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count176
+\l__pdf_internal_box=\box45
+)
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count177
+\scratchdimen=\dimen137
+\scratchbox=\box46
+\nofMPsegments=\count178
+\nofMParguments=\count179
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count180
+\MPscratchDim=\dimen138
+\MPnumerator=\count181
+\makeMPintoPDFobject=\count182
+\everyMPtoPDFconversion=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+<screenshot001.png, id=1, 347.79938pt x 347.79938pt>
+File: screenshot001.png Graphic file (type png)
+<use screenshot001.png>
+Package pdftex.def Info: screenshot001.png  used on input line 12.
+(pdftex.def)             Requested size: 227.62204pt x 227.62186pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 12.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 12.
+
+[1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./screenshot001.png>]
+(./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [1
+
+]
+Chapter 1.
+[1
+
+
+]
+Chapter 2.
+<Main Menu.png, id=19, 1445.4pt x 767.86874pt>
+File: Main Menu.png Graphic file (type png)
+<use Main Menu.png>
+Package pdftex.def Info: Main Menu.png  used on input line 33.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+<Credits.png, id=20, 1445.4pt x 767.86874pt>
+File: Credits.png Graphic file (type png)
+<use Credits.png>
+Package pdftex.def Info: Credits.png  used on input line 38.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Ingame.png, id=21, 1445.4pt x 767.86874pt>
+File: Ingame.png Graphic file (type png)
+<use Ingame.png>
+Package pdftex.def Info: Ingame.png  used on input line 43.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Jalan Kanan.png, id=22, 1445.4pt x 767.86874pt>
+File: Jalan Kanan.png Graphic file (type png)
+<use Jalan Kanan.png>
+Package pdftex.def Info: Jalan Kanan.png  used on input line 48.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+<Jalan Kiri.png, id=23, 1445.4pt x 767.86874pt>
+File: Jalan Kiri.png Graphic file (type png)
+<use Jalan Kiri.png>
+Package pdftex.def Info: Jalan Kiri.png  used on input line 49.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Tembak.png, id=24, 1445.4pt x 767.86874pt>
+File: Tembak.png Graphic file (type png)
+<use Tembak.png>
+Package pdftex.def Info: Tembak.png  used on input line 54.
+(pdftex.def)             Requested size: 284.52756pt x 151.15738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<CharacterSprite.png, id=25, 1541.76pt x 1027.84pt>
+File: CharacterSprite.png Graphic file (type png)
+<use CharacterSprite.png>
+Package pdftex.def Info: CharacterSprite.png  used on input line 59.
+(pdftex.def)             Requested size: 284.52756pt x 189.67691pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Floor.png, id=26, 1927.2pt x 1084.05pt>
+File: Floor.png Graphic file (type png)
+<use Floor.png>
+Package pdftex.def Info: Floor.png  used on input line 64.
+(pdftex.def)             Requested size: 284.52756pt x 160.03659pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Wall.png, id=27, 64.24pt x 64.24pt>
+File: Wall.png Graphic file (type png)
+<use Wall.png>
+Package pdftex.def Info: Wall.png  used on input line 69.
+(pdftex.def)             Requested size: 227.62204pt x 227.6409pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2
+
+ <./Main Menu.png (PNG copy)>] [3 <./Credits.png (PNG copy)> <./Ingame.png (PNG
+ copy)>] [4 <./Jalan Kanan.png (PNG copy)> <./Jalan Kiri.png (PNG copy)> <./Tem
+bak.png (PNG copy)>] [5 <./CharacterSprite.png> <./Floor.png (PNG copy)>]
+[6 <./Wall.png>]
+Chapter 3.
+[7
+
+]
+Overfull \hbox (134.87526pt too wide) in paragraph at lines 137--137
+[]\OT1/cmtt/m/n/12 Player(sf::Texture* texture, sf::Vector2u imageCount, float 
+switchTime, float speed);[] 
+ []
+
+
+Overfull \hbox (190.45029pt too wide) in paragraph at lines 235--235
+[]\OT1/cmtt/m/n/12 Player::Player(sf::Texture* texture, sf::Vector2u imageCount
+, float switchTime, float speed) :[] 
+ []
+
+[8]
+Overfull \hbox (128.70026pt too wide) in paragraph at lines 235--235
+[]\OT1/cmtt/m/n/12 if (!langkahsfxsb.loadFromFile("D:/Kebutuhan Game/_SFML/File
+ Tambahan/walksfx.wav"))[] 
+ []
+
+[9] [10] [11]
+Chapter 4.
+[12
+
+]
+Chapter 5.
+[13
+
+] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 1276 strings out of 483183
+ 18640 string characters out of 5966292
+ 246530 words of memory out of 5000000
+ 16311 multiletter control sequences out of 15000+600000
+ 539020 words of font info for 46 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 30i,6n,25p,590b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (15 pages, 5248718 bytes).
+PDF statistics:
+ 91 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+
